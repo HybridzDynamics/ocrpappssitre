@@ -150,9 +150,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             <p className="text-slate-400 text-sm">
               Authorized personnel only
             </p>
-            <div className="mt-2 text-xs text-slate-500">
-              <p>Test users: hybridz, rhys</p>
-            </div>
           </div>
         </div>
       </div>
