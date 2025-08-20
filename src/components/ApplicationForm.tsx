@@ -25,7 +25,7 @@ const ApplicationForm = () => {
     "What is Meta Gaming?",
     "Why should we choose you over others?",
     "What will you bring to the team?",
-    "Will you meet the quota of 2 hours per week and 200 messages in main chat?",
+    "Will you meet the quota of 2 hours per week and 200 messages in main chat?(Yes/No)",
     "Do you agree these are your own answers?",
     "Any questions for us?"
   ];
