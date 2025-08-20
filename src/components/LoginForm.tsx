@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { Lock, User, AlertCircle, Shield } from 'lucide-react';
-import { authService, type LoginCredentials } from '../lib/auth';
+
+interface LoginCredentials {
+  username: string;
+  password: string;
+}
 
 interface LoginFormProps {
-  onLoginSuccess: () => void;
+  onLoginSuccess?: () => void;
 }
+
+// Hardcoded admin users
+const ADMIN_USERS = {
+  'hybridz': 'admin_ocrp_DAF',
+  'rhys': 'admin_ocrp_F'
+};
 
 const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
   const [credentials, setCredentials] = useState<LoginCredentials>({
@@ -13,19 +23,32 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const authenticateUser = (username: string, password: string): boolean => {
+    return ADMIN_USERS[username] === password;
+  };
+
+  const handleLogin = async () => {
+    if (!credentials.username || !credentials.password) {
+      setError('Please fill in all fields');
+      return;
+    }
+
     setIsLoading(true);
     setError('');
 
     try {
-      const result = await authService.login(credentials);
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      if (result.success) {
-        onLoginSuccess();
+      if (authenticateUser(credentials.username, credentials.password)) {
+        setIsLoggedIn(true);
+        if (onLoginSuccess) {
+          onLoginSuccess();
+        }
       } else {
-        setError(result.error || 'Login failed');
+        setError('Invalid username or password');
       }
     } catch (error) {
       setError('An unexpected error occurred');
@@ -33,6 +56,27 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
       setIsLoading(false);
     }
   };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleLogin();
+    }
+  };
+
+  if (isLoggedIn) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-green-900 via-green-800 to-green-900 flex items-center justify-center p-4">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-2xl w-full max-w-md">
+          <div className="p-8 text-center">
+            <Shield className="w-16 h-16 text-green-400 mx-auto mb-4" />
+            <h1 className="text-3xl font-bold text-white mb-2">Login Successful!</h1>
+            <p className="text-slate-300">Welcome to the admin panel</p>
+            <p className="text-green-300 mt-4">Logged in as: {credentials.username}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
@@ -44,7 +88,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             <p className="text-slate-300">Orlando City Roleplay</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-6">
             <div>
               <label className="block text-white font-medium mb-2">Username</label>
               <div className="relative">
@@ -53,9 +97,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
                   type="text"
                   value={credentials.username}
                   onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+                  onKeyPress={handleKeyPress}
                   className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   placeholder="Enter your username"
-                  required
                 />
               </div>
             </div>
@@ -68,9 +112,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
                   type="password"
                   value={credentials.password}
                   onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+                  onKeyPress={handleKeyPress}
                   className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   placeholder="Enter your password"
-                  required
                 />
               </div>
             </div>
@@ -83,7 +127,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             )}
 
             <button
-              type="submit"
+              onClick={handleLogin}
               disabled={isLoading}
               className={`w-full py-3 px-4 rounded-lg font-semibold transition-all ${
                 isLoading
@@ -100,12 +144,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
                 'Sign In'
               )}
             </button>
-          </form>
+          </div>
 
           <div className="mt-8 pt-6 border-t border-white/20 text-center">
             <p className="text-slate-400 text-sm">
               Authorized personnel only
             </p>
+            <div className="mt-2 text-xs text-slate-500">
+              <p>Test users: hybridz, rhys</p>
+            </div>
           </div>
         </div>
       </div>
