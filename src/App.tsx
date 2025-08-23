@@ -26,8 +26,13 @@ function App() {
   }
 
   return (
-    <div>
-     
+    <div>     
+      {/* Content */}
+      {currentView === 'application' ? (
+        <ApplicationForm />
+      ) : (
+        <AdminPanel onLogout={handleLogout} />
+      )}
     </div>
   );
 }
