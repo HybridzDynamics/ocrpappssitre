@@ -345,7 +345,7 @@ const ApplicationForm = () => {
       const payload = {
         embeds: [embed],
         username: "Orlando City Roleplay",
-        avatar_url: "https://cdn.discordapp.com/icons/your-server-id/your-server-icon.png" // Optional: replace with your server's icon
+        avatar_url: "https://images-ext-1.discordapp.net/external/IvxSrSKnMBPNgj2sGOucgddqvz_j9GnNGcieNAA8600/%3Fsize%3D512/https/cdn.discordapp.com/icons/1200823287186473101/ecda24c6fc7ef39a998bfd25f14e7c89.png" // Optional: replace with your server's icon
       };
 
       console.log('Sending payload to Discord:', payload);

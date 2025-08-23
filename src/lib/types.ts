@@ -177,7 +177,6 @@ export interface Department {
   name: string;
   fullName: string;
   description: string;
-  commissioner: string;
   motto: string;
   isOpen: boolean;
   requirements: {
@@ -196,7 +195,6 @@ export const DEPARTMENTS: Department[] = [
     name: 'Staff',
     fullName: 'Orlando City Roleplay Staff',
     description: 'Join our dedicated staff team and help shape the Orlando City Roleplay experience. Staff members are responsible for maintaining server quality, assisting players, and ensuring everyone has an enjoyable roleplay experience.',
-    commissioner: 'Management Team',
     motto: 'Dedication, Integrity, Community',
     isOpen: true,
     requirements: {
@@ -210,7 +208,6 @@ export const DEPARTMENTS: Department[] = [
     name: 'OCSO',
     fullName: 'Orange County Sheriff\'s Office',
     description: 'The Orange County Sheriff\'s Office (OCSO) is a law enforcement agency serving Orange County, Florida. Committed to public safety and community engagement, the OCSO provides a wide range of services including patrol, criminal investigations, emergency response, and crime prevention.',
-    commissioner: '@Teslabuddy29',
     motto: 'Trust, Transparency, Dignity & Respect',
     isOpen: true,
     requirements: {
@@ -225,7 +222,6 @@ export const DEPARTMENTS: Department[] = [
     name: 'OCPD',
     fullName: 'Orlando City Police Department',
     description: 'The Orlando City Police Department (OCPD) is a dedicated and professional law enforcement agency within Orlando City Roleplay. Focused on protecting the community and upholding the law, OCPD officers are trained to handle a wide range of situations with integrity, respect, and realism.',
-    commissioner: '@Bx',
     motto: 'Courage, Pride, Commitment',
     isOpen: true,
     requirements: {
@@ -240,7 +236,6 @@ export const DEPARTMENTS: Department[] = [
     name: 'OCFRD',
     fullName: 'Orlando City Fire & Rescue Department',
     description: 'The Orlando City Fire & Rescue Department (OCFRD) is a highly trained and responsive emergency services team within Orlando City Roleplay. Committed to saving lives and protecting property, OCFRD handles fire suppression, medical emergencies, and rescue operations with professionalism and efficiency.',
-    commissioner: '@vertoxx (@Mousegirl900)',
     motto: 'We Rise to Save',
     isOpen: true,
     requirements: {
@@ -255,7 +250,6 @@ export const DEPARTMENTS: Department[] = [
     name: 'FHP',
     fullName: 'Florida Highway Patrol',
     description: 'The Florida Highway Patrol (FHP) is a specialized state law enforcement agency within Orlando City Roleplay, focused on ensuring safety and enforcing traffic laws on highways and major roadways. Known for their professionalism and high standards, FHP troopers handle pursuits, traffic enforcement, accident response, and DUI patrols.',
-    commissioner: '<@553262355610468352>',
     motto: 'Courtesy, Service, and Protection',
     isOpen: true,
     requirements: {
@@ -268,9 +262,8 @@ export const DEPARTMENTS: Department[] = [
   {
     id: 'fwc',
     name: 'FWC',
-    fullName: 'Florida Fish and Wildlife Conservation',
+    fullName: 'Florida Fish and Wildlife Conservation Commission',
     description: 'The Florida Fish and Wildlife Conservation Commission (FWC) in Orlando City Roleplay is a specialized agency dedicated to protecting the state\'s natural resources and wildlife. Officers with the FWC patrol rural areas, waterways, and parks, enforcing laws related to hunting, fishing, boating, and environmental conservation.',
-    commissioner: '@MGMT | FWC | Doctor Duck',
     motto: 'Patrol, Protect, Preserve',
     isOpen: true,
     requirements: {
@@ -284,7 +277,6 @@ export const DEPARTMENTS: Department[] = [
     name: 'Civilian Ops',
     fullName: 'Orlando City Civilian Operations',
     description: 'Orlando City Civilian Operations focuses on creating realistic civilian roleplay experiences. From business owners to everyday citizens, civilian operations provide the backbone of our roleplay community, creating immersive scenarios and interactions that make the city feel alive.',
-    commissioner: '@Rhys',
     motto: 'Building Community, Creating Stories',
     isOpen: true,
     requirements: {
@@ -297,7 +289,6 @@ export const DEPARTMENTS: Department[] = [
     name: 'FDOT',
     fullName: 'Florida Department of Transportation',
     description: 'The Florida Department of Transportation (FDOT) is responsible for maintaining and improving the state\'s transportation infrastructure. In Orlando City Roleplay, FDOT personnel handle road construction, maintenance, traffic management, and emergency road repairs to keep the city moving safely and efficiently.',
-    commissioner: 'Management Team',
     motto: 'Moving Florida Forward',
     isOpen: true,
     requirements: {

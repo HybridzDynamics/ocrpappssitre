@@ -14,13 +14,13 @@ const DepartmentSelector: React.FC<DepartmentSelectorProps> = ({
   const getDepartmentIcon = (departmentId: string) => {
     switch (departmentId) {
       case 'staff': return <Shield className="w-6 h-6" />;
-      case 'ocso': return <Shield className="w-6 h-6" />;
-      case 'ocpd': return <Shield className="w-6 h-6" />;
-      case 'ocfrd': return <Flame className="w-6 h-6" />;
-      case 'fhp': return <Car className="w-6 h-6" />;
-      case 'fwc': return <Fish className="w-6 h-6" />;
-      case 'civilian': return <Users className="w-6 h-6" />;
-      case 'fdot': return <Wrench className="w-6 h-6" />;
+      case 'Orlando City Sherrif Office': return <Shield className="w-6 h-6" />;
+      case 'Orlando City Police Department': return <Shield className="w-6 h-6" />;
+      case 'Orlando Fire and Rescue Department': return <Flame className="w-6 h-6" />;
+      case 'Florida Highway Patrol': return <Car className="w-6 h-6" />;
+      case 'Florida Fish and Wildlife Conservation Commission': return <Fish className="w-6 h-6" />;
+      case 'Civilian Operations': return <Users className="w-6 h-6" />;
+      case 'Florida Department of Transportation': return <Wrench className="w-6 h-6" />;
       default: return <MapPin className="w-6 h-6" />;
     }
   };
@@ -79,13 +79,7 @@ const DepartmentSelector: React.FC<DepartmentSelectorProps> = ({
               </p>
 
               <div className="space-y-3 mt-auto">
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-400 text-sm">Commissioner:</span>
-                  <span className="text-blue-300 text-sm font-medium text-right">
-                    {department.commissioner}
-                  </span>
-                </div>
-                
+                                
                 <div className="text-center px-2 py-2 bg-white/5 rounded-lg">
                   <span className="text-blue-200 text-sm italic">"{department.motto}"</span>
                 </div>
